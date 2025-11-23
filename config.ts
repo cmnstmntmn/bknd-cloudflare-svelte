@@ -27,7 +27,7 @@ export default {
     return {
       // in production mode, we use the appconfig.json file as static config
       config: {
-        data: schema,
+        data: schema.toJSON(),
         server: {
           mcp: {
             enabled: true,
@@ -37,9 +37,9 @@ export default {
           enabled: false,
           jwt: {
             issuer: "domzz",
-            secret: env.SECRET ?? secureRandomString(64),
+            secret: secureRandomString(64),
           },
-          guard: { enabled: env.ENVIRONMENT !== "development" },
+          guard: { enabled: false },
           roles: {
             EDITOR: {
               is_default: true,
@@ -82,4 +82,4 @@ export default {
 
   // remove "<any>" once you added the env variables
   // wrangler types should properly type it
-} satisfies CloudflareBkndConfig<any>;
+} satisfies CloudflareBkndConfig;
