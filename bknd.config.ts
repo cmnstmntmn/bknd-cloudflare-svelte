@@ -5,7 +5,7 @@ import config from "./config";
 
 export default withPlatformProxy(config, {
   useProxy: true,
-  proxyOptions: {
-    environment: import.meta.env.CLOUDFLARE_ENV,
-  },
+  // proxyOptions: {
+  //   environment: import.meta.env.CLOUDFLARE_ENV,
+  // },
 });

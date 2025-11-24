@@ -1,8 +1,10 @@
 import type { RequestHandler } from "./$types";
 import { getApp } from "../../../bknd";
 
-const handler: RequestHandler = async ({ request }) => {
-  const app = await getApp();
+const handler: RequestHandler = async ({ request, platform }) => {
+  console.log(platform.evn);
+
+  const app = await getApp(platform.env);
   return app.fetch(request);
 };
 

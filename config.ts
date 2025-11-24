@@ -24,6 +24,8 @@ export default {
     sync: true,
   },
   app: (env) => {
+    console.log("env in app", env);
+
     return {
       // in production mode, we use the appconfig.json file as static config
       config: {

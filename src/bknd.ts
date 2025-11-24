@@ -4,7 +4,7 @@ import type { ApiOptions } from "bknd/client";
 import type { App } from "bknd";
 
 let app: App;
-export async function getApp() {
+export async function getApp(platform: Cloudflare.Env) {
   if (!app) {
     app = await createRuntimeApp(
       {
@@ -14,7 +14,7 @@ export async function getApp() {
           logoReturnPath: "/../",
         },
       },
-      import.meta.env,
+      platform,
     );
   }
   return app;
